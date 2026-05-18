@@ -6,13 +6,12 @@
 static volatile uint32_t _ticks_ms = 0;
 
 void millis_init(void) {
-  // Timer0, CTC mode, prescaller /64, OCR0A = 249
-  // f_isr = 16e6 / 64 / (249 + 1) = 1000 Hz -> 1 ms tick
+  // Timer0, CTC mode, prescaller /8, OCR0A = 124
+  // f_isr = 1e6 / 8 / (124 + 1) = 1000 Hz -> 1 ms tick
   TCCR0A = (1 << WGM01);              // CTC
-  TCCR0B = (1 << CS01) | (1 << CS00); // /64
-  OCR0A = 239;
+  TCCR0B = (1 << CS01);               // /8
+  OCR0A = 124;
   TIMSK0 = (1 << OCIE0A); // enable compare-A interrupt
-  sei();
 }
 
 uint32_t millis(void) {

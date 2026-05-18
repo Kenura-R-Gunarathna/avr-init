@@ -1,11 +1,12 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdint.h>
-#include "millis.h"      // from Ch 1b
+#include "drivers/millis.h"
 
 int main(void) {
     DDRB |= (1 << PB5) | (1 << PB4);     // LED A = PB5, LED B = PB4
     millis_init();
+    sei();
 
     uint32_t lastA = 0, lastB = 0;
 
