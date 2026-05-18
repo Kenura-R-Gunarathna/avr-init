@@ -1,0 +1,31 @@
+[
+  {
+    "file": "src/led.c",
+    "arguments": [
+      "/usr/bin/avr-gcc",
+      "-c",
+      "-mmcu=atmega328p",
+      "-I.",
+      "-gdwarf-2",
+      "-DF_CPU=1000000UL",
+      "-Os",
+      "-funsigned-char",
+      "-funsigned-bitfields",
+      "-fpack-struct",
+      "-fshort-enums",
+      "-Wall",
+      "-Wstrict-prototypes",
+      "-Wa,-adhlns=build/led.lst",
+      "-std=gnu99",
+      "-MMD",
+      "-MP",
+      "-MF",
+      "build/led.o.d",
+      "src/led.c",
+      "-o",
+      "build/led.o"
+    ],
+    "directory": "/home/kenura/Documents/ph-embeded-17239/sirs_ssd",
+    "output": "build/led.o"
+  }
+]
